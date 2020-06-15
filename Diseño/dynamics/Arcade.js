@@ -1,4 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {//Revisa que esté cargado
+function inicio()
+{
+  let bod = document.getElementsByTagName("body");
+  var grid = document.createElement("div");
+  grid.id = "grid";
+  for (i=0; i<4; i++){
+    var emp = document.createElement("div");
+    grid.appendChild(emp);
+  }
+  var bot1 = document.createElement("div");
+  bot1.innerHTML="<center><button>Busca Minas</button></center>";
+  bot1.addEventListener('click', function(e) {
+    buscaM();
+  });
+  grid.appendChild(bot1);
+  bod[0].appendChild(grid);
+}
+function buscaM(){
+  let bod = document.getElementsByTagName("body");
+  bod[0].innerHTML='<header><section id="cw"> Curso Web 2020 </section><nav><section id="b1"> Inicio </section><section id="b2"> TEAM </section></nav></header>';
+  bod[0].innerHTML+='<div class="container"><div class="grid"></div><div>Banderas restantes: <span id="flags-left"></span></div><div id="result"></div></div>';
+//Revisa que esté cargado
   const grid = document.querySelector('.grid');//Elige elementos con la clase grid del CSS
   const flagsLeft = document.querySelector('#flags-left');
   const result = document.querySelector('#result');
@@ -209,4 +230,5 @@ document.addEventListener('DOMContentLoaded', () => {//Revisa que esté cargado
       }
     }
   }
-});
+}
+inicio();
