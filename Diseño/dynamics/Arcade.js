@@ -1,5 +1,7 @@
 function inicio()
 {
+  var audio = new Audio("../statics/audio/theme.mp3");
+  audio.play();
   let bod = document.getElementsByTagName("body");
   var grid = document.createElement("div");
   grid.id = "grid";
