@@ -4,8 +4,8 @@
 }
 
 .grid {
-  height: 400px;
-  width: 400px;
+  height: 420px;
+  width: 420px;
   display: flex;
   flex-wrap: wrap;
   background-color: #dcd6bc;
