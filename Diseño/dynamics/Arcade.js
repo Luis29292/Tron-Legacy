@@ -293,9 +293,18 @@ function j2048(){
 
   //Generar número de forma aleatoria
   function generar(){
+
     numAl = Math.floor(Math.random()*squares.length);
     if (squares[numAl].innerHTML==0){
       squares[numAl].innerHTML=2;
+      for (i=0; i<16; i++){
+        if (squares[i].innerHTML==0){
+          squares[i].id="cero";
+        }
+        else{
+          squares[i].id="";
+        }
+      }
       perder();
     }
     else{
