@@ -16,6 +16,7 @@ function inicio()
   bot2.innerHTML="<center><button>2048</button></center>";
   var bot3 = document.createElement("div");
   bot3.innerHTML="<center><button>Tetris</button></center>";
+
   bot1.addEventListener('click', function(e) {
     buscaM();
   });
@@ -25,6 +26,13 @@ function inicio()
   grid.appendChild(bot1);
   grid.appendChild(bot2);
   grid.appendChild(bot3);
+  for (i=0; i<4; i++){
+    var emp = document.createElement("div");
+    grid.appendChild(emp);
+  }
+  var logo = document.createElement("div");
+  logo.innerHTML = '<img src="../statics/img/icon.png" id="logo">';
+  grid.appendChild(logo);
   bod[0].appendChild(grid);
   botBm = document.getElementById("bM");
   botBm.addEventListener('click', function(e) {
