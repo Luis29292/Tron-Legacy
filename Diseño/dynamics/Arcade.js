@@ -1,8 +1,7 @@
 function inicio()
 {
-  var audio = new Audio("../statics/audio/theme.mp3");
-  audio.play();
   let bod = document.getElementsByTagName("body");
+  bod[0].innerHTML= '<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item active" id="ini">Inicio</li><li class="list-group-item list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
   var grid = document.createElement("div");
   grid.id = "grid";
   for (i=0; i<2; i++){
@@ -11,23 +10,44 @@ function inicio()
   }
   var bot1 = document.createElement("div");
   bot1.innerHTML="<center><button>Busca Minas</button></center>";
-
   var emp = document.createElement("div");
   grid.appendChild(emp);
   var bot2 = document.createElement("div");
   bot2.innerHTML="<center><button>2048</button></center>";
+  var bot3 = document.createElement("div");
+  bot3.innerHTML="<center><button>Tetris</button></center>";
   bot1.addEventListener('click', function(e) {
     buscaM();
   });
+  bot2.addEventListener("click",function(e){
+    j2048();
+  });
   grid.appendChild(bot1);
   grid.appendChild(bot2);
+  grid.appendChild(bot3);
   bod[0].appendChild(grid);
+  botBm = document.getElementById("bM");
+  botBm.addEventListener('click', function(e) {
+    buscaM();
+  });
+  botj2 = document.getElementById("j2");
+  botj2.addEventListener('click', function(e) {
+    j2048();
+  });
 }
 function buscaM(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<header class="navbar navbar-nav" style="background-color:red"><section id="cw"> Curso Web 2020 </section><section id="b1"> Inicio </section><section id="b2"> TEAM </section></header>';
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  active" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
   bod[0].innerHTML+='<div class="container"><div class="grid"></div><div>Banderas restantes: <span id="flags-left"></span></div><div id="result"></div></div>';
-//Revisa que esté cargado
+  botIni = document.getElementById("ini");
+  botIni.addEventListener('click', function(e) {
+    inicio();
+  });
+  botj2 = document.getElementById("j2");
+  botj2.addEventListener('click', function(e) {
+    j2048();
+  });
+
   const grid = document.querySelector('.grid');//Elige elementos con la clase grid del CSS
   const flagsLeft = document.querySelector('#flags-left');
   const result = document.querySelector('#result');
@@ -241,8 +261,16 @@ function buscaM(){
 }
 function j2048(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<header class="navbar navbar-nav" style="background-color:red"><section id="cw"> Curso Web 2020 </section><section id="b1"> Inicio </section><section id="b2"> TEAM </section></header>';
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
   bod[0].innerHTML+='<div class="scConten"><div class="scTi">Puntaje</div><span id="score">0</span></div><div id="result"></div><div class="reja"></div>';
+  botIni = document.getElementById("ini");
+  botIni.addEventListener('click', function(e) {
+    inicio();
+  });
+  botBm = document.getElementById("bM");
+  botBm.addEventListener('click', function(e) {
+    buscaM();
+  });
   const gridDisplay = document.querySelector(".reja");
   const scoreDisplay = document.getElementById("score");
   const resultDisplay = document.getElementById("result");
@@ -459,4 +487,6 @@ function j2048(){
     }
   }
 }
-j2048()
+var audio = new Audio("../statics/audio/theme.mp3");
+audio.play();
+inicio();
