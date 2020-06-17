@@ -490,3 +490,7 @@ function j2048(){
 var audio = new Audio("../statics/audio/theme.mp3");
 audio.play();
 inicio();
+audio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
