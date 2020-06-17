@@ -127,6 +127,9 @@ function buscaM(){
         squares[i].setAttribute('data', total);//Guarda el total de bombas en data
       }
     }
+    var aside = document.createElement("aside");
+    aside.innerHTML = "<br><br><br>Instrucciones: Da click en un cuadro para revelar su contenido. Click derecho para marcarlo como potencial bomba. Los números te dice cuántas minas está tocando. Encuentra todos los explosivos (sin detonarlos), y ganarás el juego";
+    grid.appendChild(aside);
   }
   createBoard()//Llama a la función recién creada
 
@@ -294,6 +297,9 @@ function j2048(){
       gridDisplay.appendChild(square);
       squares.push(square);
     }
+    var aside = document.createElement("aside");
+    aside.innerText = "Instrucciones: Utilizando las flechas, mezcla los números que sean iguales. Ganas cuando llegues a 2048, pierdes cuando llenes el espacio.";
+    gridDisplay.appendChild(aside);
     generar();
     generar();
   }
