@@ -1,9 +1,19 @@
 var bod = document.getElementsByTagName("body");
 bod[0].id="f1";
+var colCo = document.cookie;
+console.log(colCo);
+if (colCo=="")
+  colCo = "colCoo=#ffd700";
+var colVa = colCo.substr(7);
+if (colVa == "#ffd700"){
+  bod[0].id="f1";
+}
+else{
+  bod[0].id="f2";
+}
 function colIn(){
   var bod = document.getElementsByTagName("body");
   var colo = document.getElementsByTagName("input");
-  console.log(colo[0]);
   colo[0].addEventListener('input', color);
   function color(e){
     if (e.srcElement.value == "#ffd700"){
@@ -12,12 +22,13 @@ function colIn(){
     else{
       bod[0].id="f2";
     }
+    document.cookie = "colCoo="+e.srcElement.value;
   }
 }
 function inicio()
 {
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML= '<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item active" id="ini">Inicio</li><li class="list-group-item list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="#FFD700" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';
+  bod[0].innerHTML= '<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item active" id="ini">Inicio</li><li class="list-group-item list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';
   colIn();
   bod = document.getElementsByTagName("body");
   var grid = document.createElement("div");
@@ -63,7 +74,7 @@ function inicio()
 }
 function buscaM(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  active" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="#FFD700" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  active" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';
   bod[0].innerHTML+='<div class="container"><div class="grid"></div><div>Banderas restantes: <span id="flags-left"></span></div><div id="result"></div></div>';
   colIn();
   botIni = document.getElementById("ini");
@@ -291,7 +302,7 @@ function buscaM(){
 }
 function j2048(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="#FFD700" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';//Colocamos el navbar de la página inicial, con modificaciones
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';//Colocamos el navbar de la página inicial, con modificaciones
   bod[0].innerHTML+='<div class="scConten"><div class="scTi">Puntaje</div><span id="score">0</span></div><div id="result"></div><div class="reja"></div>';//Añadimos el grid para el juego
   colIn();
   botIni = document.getElementById("ini");//Obtenemos el botón de inicio
