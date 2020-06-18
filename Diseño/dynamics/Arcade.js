@@ -1,25 +1,53 @@
 function inicio()
 {
   let bod = document.getElementsByTagName("body");
+  bod[0].innerHTML= '<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item active" id="ini">Inicio</li><li class="list-group-item list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
   var grid = document.createElement("div");
   grid.id = "grid";
-  for (i=0; i<4; i++){
+  for (i=0; i<2; i++){
     var emp = document.createElement("div");
     grid.appendChild(emp);
   }
   var bot1 = document.createElement("div");
   bot1.innerHTML="<center><button>Busca Minas</button></center>";
+  var emp = document.createElement("div");
+  grid.appendChild(emp);
+  var bot2 = document.createElement("div");
+  bot2.innerHTML="<center><button>2048</button></center>";
+  var bot3 = document.createElement("div");
+  bot3.innerHTML="<center><button>Tetris</button></center>";
   bot1.addEventListener('click', function(e) {
     buscaM();
   });
+  bot2.addEventListener("click",function(e){
+    j2048();
+  });
   grid.appendChild(bot1);
+  grid.appendChild(bot2);
+  grid.appendChild(bot3);
   bod[0].appendChild(grid);
+  botBm = document.getElementById("bM");
+  botBm.addEventListener('click', function(e) {
+    buscaM();
+  });
+  botj2 = document.getElementById("j2");
+  botj2.addEventListener('click', function(e) {
+    j2048();
+  });
 }
 function buscaM(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<header><section id="cw"> Curso Web 2020 </section><nav><section id="b1"> Inicio </section><section id="b2"> TEAM </section></nav></header>';
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  active" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
   bod[0].innerHTML+='<div class="container"><div class="grid"></div><div>Banderas restantes: <span id="flags-left"></span></div><div id="result"></div></div>';
-//Revisa que esté cargado
+  botIni = document.getElementById("ini");
+  botIni.addEventListener('click', function(e) {
+    inicio();
+  });
+  botj2 = document.getElementById("j2");
+  botj2.addEventListener('click', function(e) {
+    j2048();
+  });
+
   const grid = document.querySelector('.grid');//Elige elementos con la clase grid del CSS
   const flagsLeft = document.querySelector('#flags-left');
   const result = document.querySelector('#result');
@@ -231,4 +259,247 @@ function buscaM(){
     }
   }
 }
+function j2048(){
+  let bod = document.getElementsByTagName("body");
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
+  bod[0].innerHTML+='<div class="scConten"><div class="scTi">Puntaje</div><span id="score">0</span></div><div id="result"></div><div class="reja"></div>';
+  botIni = document.getElementById("ini");
+  botIni.addEventListener('click', function(e) {
+    inicio();
+  });
+  botBm = document.getElementById("bM");
+  botBm.addEventListener('click', function(e) {
+    buscaM();
+  });
+  const gridDisplay = document.querySelector(".reja");
+  const scoreDisplay = document.getElementById("score");
+  const resultDisplay = document.getElementById("result");
+  const width=4;
+  let squares = []
+  let score=0;
+  //Crea tablero
+  function board2048(){
+    for (i=0; i<width*width; i++)
+    {
+      square= document.createElement("div");
+      square.innerHTML=0;
+      gridDisplay.appendChild(square);
+      squares.push(square);
+    }
+    generar();
+    generar();
+  }
+  board2048();
+
+  //Generar número de forma aleatoria
+  function generar(){
+
+    numAl = Math.floor(Math.random()*squares.length);
+    if (squares[numAl].innerHTML==0){
+      squares[numAl].innerHTML=2;
+      for (i=0; i<16; i++){
+        if (squares[i].innerHTML==0){
+          squares[i].id="cero";
+        }
+        else{
+          squares[i].id="";
+        }
+      }
+      perder();
+    }
+    else{
+      generar();
+    }
+  }
+
+  //Mover A la derecha
+  function moveRight(){
+    for (i=0; i<16; i++)
+    {
+      if (i%4===0){
+        let totalOne = squares[i].innerHTML;
+        let totalTwo = squares[i+1].innerHTML;
+        let totalThree = squares[i+2].innerHTML;
+        let totalFour = squares[i+3].innerHTML;
+        let row = [parseInt(totalOne),parseInt(totalTwo),parseInt(totalThree),parseInt(totalFour)];
+
+        let filteredRow = row.filter(num => num);
+
+        let restante = 4 - filteredRow.length;
+        let ceros = Array(restante).fill(0);
+
+        let nueFil = ceros.concat(filteredRow);
+
+        squares[i].innerHTML = nueFil[0];
+        squares[i+1].innerHTML = nueFil[1];
+        squares[i+2].innerHTML = nueFil[2];
+        squares[i+3].innerHTML = nueFil[3];
+      }
+    }
+  }
+
+  //Mover A la Izquierda
+  function moveLeft(){
+    for (i=0; i<16; i++)
+    {
+      if (i%4===0){
+        let totalOne = squares[i].innerHTML;
+        let totalTwo = squares[i+1].innerHTML;
+        let totalThree = squares[i+2].innerHTML;
+        let totalFour = squares[i+3].innerHTML;
+        let row = [parseInt(totalOne),parseInt(totalTwo),parseInt(totalThree),parseInt(totalFour)];
+
+        let filteredRow = row.filter(num => num);
+
+        let restante = 4 - filteredRow.length;
+        let ceros = Array(restante).fill(0);
+
+        let nueFil = filteredRow.concat(ceros);
+
+        squares[i].innerHTML = nueFil[0];
+        squares[i+1].innerHTML = nueFil[1];
+        squares[i+2].innerHTML = nueFil[2];
+        squares[i+3].innerHTML = nueFil[3];
+      }
+    }
+  }
+  //Mover hacia abajo
+  function moveDown(){
+    for (i=0; i<4; i++){
+      let totalOne = squares[i].innerHTML;
+      let totalTwo = squares[i+width].innerHTML;
+      let totalThree = squares[i+(2*width)].innerHTML;
+      let totalFour = squares[i+(3*width)].innerHTML;
+      let columna = [parseInt(totalOne),parseInt(totalTwo),parseInt(totalThree),parseInt(totalFour)];
+      let filteredColumn = columna.filter(num => num);
+      let restante = 4 - filteredColumn.length;
+      let ceros = Array(restante).fill(0);
+
+      let nueCol = ceros.concat(filteredColumn);
+
+      squares[i].innerHTML = nueCol[0];
+      squares[i+width].innerHTML = nueCol[1];
+      squares[i+(2*width)].innerHTML = nueCol[2];
+      squares[i+(3*width)].innerHTML = nueCol[3];
+    }
+  }
+  //Mover hacia arriba
+  function moveUp(){
+    for (i=0; i<4; i++){
+      let totalOne = squares[i].innerHTML;
+      let totalTwo = squares[i+width].innerHTML;
+      let totalThree = squares[i+(2*width)].innerHTML;
+      let totalFour = squares[i+(3*width)].innerHTML;
+      let columna = [parseInt(totalOne),parseInt(totalTwo),parseInt(totalThree),parseInt(totalFour)];
+      let filteredColumn = columna.filter(num => num);
+      let restante = 4 - filteredColumn.length;
+      let ceros = Array(restante).fill(0);
+
+      let nueCol = filteredColumn.concat(ceros);
+
+      squares[i].innerHTML = nueCol[0];
+      squares[i+width].innerHTML = nueCol[1];
+      squares[i+(2*width)].innerHTML = nueCol[2];
+      squares[i+(3*width)].innerHTML = nueCol[3];
+    }
+  }
+  //Combinar FILAS
+  function combineRow(){
+    for (i=0; i<15; i++){
+      if (squares[i].innerHTML===squares[i+1].innerHTML){
+        let totalCom = parseInt(squares[i].innerHTML)+parseInt(squares[i+1].innerHTML)
+        squares[i].innerHTML=totalCom;
+
+        squares[i+1].innerHTML=0;
+        score+= totalCom;
+        scoreDisplay.innerHTML = score;
+      }
+    }
+    ganar2048();
+  }
+  //Combinar COLUMNAS
+  function combineColumn(){
+    for (i=0; i<12; i++){
+      if (squares[i].innerHTML===squares[i+width].innerHTML){
+        let totalCom = parseInt(squares[i].innerHTML)+parseInt(squares[i+width].innerHTML)
+        squares[i].innerHTML=totalCom;
+
+        squares[i+width].innerHTML=0;
+        score+= totalCom;
+        scoreDisplay.innerHTML = score;
+      }
+    }
+    ganar2048();
+  }
+  //Teclas
+  function control(e){
+    if (e.keyCode==39){
+      keyDer();
+    }
+    else if (e.keyCode==37) {
+      keyIz();
+    }
+    else if (e.keyCode==38) {
+      keyUp();
+    }
+    else if (e.keyCode==40) {
+      keyDown();
+    }
+  }
+  document.addEventListener('keyup', control);
+  function keyDer(){
+    moveRight();
+    combineRow();
+    moveRight();
+    generar();
+  }
+  function keyIz(){
+    moveLeft();
+    combineRow();
+    moveLeft();
+    generar();
+  }
+  function keyDown(){
+    moveDown();
+    combineColumn();
+    moveDown();
+    generar();
+  }
+  function keyUp(){
+    moveUp();
+    combineColumn();
+    moveUp();
+    generar();
+  }
+  function ganar2048(){
+    for (i=0; i< squares.length; i++)
+    {
+      if (squares[i].innerHTML==2048){
+        resultDisplay.innerHTML = "¡Ganaste! 🤩";
+        document.removeEventListener("keyup",control);
+      }
+    }
+  }
+  function perder(){
+    let zeros=0;
+    for (let i=0; i<squares.length; i++)
+    {
+      if (squares[i].innerHTML==0)
+      {
+        zeros++;
+      }
+    }
+    if (zeros===0)
+    {
+      resultDisplay.innerHTML = "Perdiste 🤐";
+      document.removeEventListener("keyup",control);
+    }
+  }
+}
+var audio = new Audio("../statics/audio/theme.mp3");
+audio.play();
 inicio();
+audio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
