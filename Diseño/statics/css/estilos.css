@@ -1,12 +1,11 @@
 /*------------------------------------Fuente/s------------------------------------*/
 @font-face {
   font-family: PressStart2P-Regular;
-  src: url("../../../lib/Fonts/PressStart2P-Regular.ttf");
+  src: url("../../lib/Fonts/PressStart2P-Regular.ttf");
 }
 
 body {
   -webkit-text-stroke: 2px #353535;
-  background-color: #292733;
   background-attachment: fixed;
   color: #F8F9F9;
   font-family: PressStart2P-Regular;
@@ -86,4 +85,10 @@ div#grid{
   position: relative;
   animation-name: logo;
   animation-duration: 5s;
+}
+#f1{
+  background-color: #FFD700;
+}
+#f2{
+  background-color: #2DB7CC;
 }

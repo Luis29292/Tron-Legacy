@@ -1,7 +1,25 @@
+var bod = document.getElementsByTagName("body");
+bod[0].id="f1";
+function colIn(){
+  var bod = document.getElementsByTagName("body");
+  var colo = document.getElementsByTagName("input");
+  console.log(colo[0]);
+  colo[0].addEventListener('input', color);
+  function color(e){
+    if (e.srcElement.value == "#ffd700"){
+      bod[0].id="f1";
+    }
+    else{
+      bod[0].id="f2";
+    }
+  }
+}
 function inicio()
 {
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML= '<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item active" id="ini">Inicio</li><li class="list-group-item list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
+  bod[0].innerHTML= '<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item active" id="ini">Inicio</li><li class="list-group-item list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="#FFD700" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';
+  colIn();
+  bod = document.getElementsByTagName("body");
   var grid = document.createElement("div");
   grid.id = "grid";
   for (i=0; i<2; i++){
@@ -45,8 +63,9 @@ function inicio()
 }
 function buscaM(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  active" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  active" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="#FFD700" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';
   bod[0].innerHTML+='<div class="container"><div class="grid"></div><div>Banderas restantes: <span id="flags-left"></span></div><div id="result"></div></div>';
+  colIn();
   botIni = document.getElementById("ini");
   botIni.addEventListener('click', function(e) {
     inicio();
@@ -272,8 +291,9 @@ function buscaM(){
 }
 function j2048(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';//Colocamos el navbar de la página inicial, con modificaciones
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="#FFD700" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC">';//Colocamos el navbar de la página inicial, con modificaciones
   bod[0].innerHTML+='<div class="scConten"><div class="scTi">Puntaje</div><span id="score">0</span></div><div id="result"></div><div class="reja"></div>';//Añadimos el grid para el juego
+  colIn();
   botIni = document.getElementById("ini");//Obtenemos el botón de inicio
   botIni.addEventListener('click', function(e) {//Al darle click, se irá a la sección de inicio
     inicio();
