@@ -272,79 +272,79 @@ function buscaM(){
 }
 function j2048(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';
-  bod[0].innerHTML+='<div class="scConten"><div class="scTi">Puntaje</div><span id="score">0</span></div><div id="result"></div><div class="reja"></div>';
-  botIni = document.getElementById("ini");
-  botIni.addEventListener('click', function(e) {
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li></ul></navbar>';//Colocamos el navbar de la página inicial, con modificaciones
+  bod[0].innerHTML+='<div class="scConten"><div class="scTi">Puntaje</div><span id="score">0</span></div><div id="result"></div><div class="reja"></div>';//Añadimos el grid para el juego
+  botIni = document.getElementById("ini");//Obtenemos el botón de inicio
+  botIni.addEventListener('click', function(e) {//Al darle click, se irá a la sección de inicio
     inicio();
   });
-  botBm = document.getElementById("bM");
+  botBm = document.getElementById("bM");//El botón del buscaminas
   botBm.addEventListener('click', function(e) {
     buscaM();
   });
-  const gridDisplay = document.querySelector(".reja");
-  const scoreDisplay = document.getElementById("score");
-  const resultDisplay = document.getElementById("result");
-  const width=4;
-  let squares = []
-  let score=0;
+  const gridDisplay = document.querySelector(".reja");//Obtenemos el grid
+  const scoreDisplay = document.getElementById("score");//Obtenemos la sección de la puntuación
+  const resultDisplay = document.getElementById("result");//Obtenemos la sección del resultado final
+  const width=4;//Tamaño del tablero
+  let squares = []//Arreglo en el que se guardan los cuadros existentes
+  let score=0;//Inicializamos en cero
   //Crea tablero
   function board2048(){
-    for (i=0; i<width*width; i++)
+    for (i=0; i<width*width; i++)//Hasta que se llene
     {
-      square= document.createElement("div");
-      square.innerHTML=0;
-      gridDisplay.appendChild(square);
-      squares.push(square);
+      square= document.createElement("div");//Creamos un cuadro
+      square.innerHTML=0; //El valor cero, representará a los cuadros inexistentes en el juego
+      gridDisplay.appendChild(square);//Agregamos el cuadro al grid
+      squares.push(square);//Agregamos el cuadro al arreglo
     }
-    var aside = document.createElement("aside");
+    var aside = document.createElement("aside");//Creamos un aside para el instructivo
     aside.innerText = "Instrucciones: Utilizando las flechas, mezcla los números que sean iguales. Ganas cuando llegues a 2048, pierdes cuando llenes el espacio.";
-    gridDisplay.appendChild(aside);
-    generar();
+    gridDisplay.appendChild(aside);//Agregamos el aside
+    generar();//Llamamos a la funcón generar 2 veces, ya que cuando inicie el juego, queremos que hayan 2 números
     generar();
   }
-  board2048();
+  board2048();//Creamos el tablero
 
   //Generar número de forma aleatoria
   function generar(){
 
-    numAl = Math.floor(Math.random()*squares.length);
-    if (squares[numAl].innerHTML==0){
-      squares[numAl].innerHTML=2;
-      for (i=0; i<16; i++){
+    numAl = Math.floor(Math.random()*squares.length);//Obtenemos el cuadro al que le vamos a meter un número nuevo
+    if (squares[numAl].innerHTML==0){//Validamos que sea igual a cero, para evitar que nos asigne números donde ya los hay
+      squares[numAl].innerHTML=2;//Ponemos un 2
+      for (i=0; i<16; i++){//Para que los ceros sean invisibles, si son iguales a cero, se les aplicará cierto estilo del CSS
         if (squares[i].innerHTML==0){
           squares[i].id="cero";
         }
-        else{
+        else{//Si no, sí serán visibles
           squares[i].id="";
         }
       }
-      perder();
+      perder();//Revisa si perdió
     }
     else{
-      generar();
+      generar();//Si no es igual a cero, lo intenta de nuevo
     }
   }
 
   //Mover A la derecha
   function moveRight(){
-    for (i=0; i<16; i++)
+    for (i=0; i<16; i++)//Checa todos los cuadros
     {
-      if (i%4===0){
-        let totalOne = squares[i].innerHTML;
+      if (i%4===0){//Si es una fila nueva
+        let totalOne = squares[i].innerHTML;//Guardamos los valores de esa fila en variables
         let totalTwo = squares[i+1].innerHTML;
         let totalThree = squares[i+2].innerHTML;
         let totalFour = squares[i+3].innerHTML;
-        let row = [parseInt(totalOne),parseInt(totalTwo),parseInt(totalThree),parseInt(totalFour)];
+        let row = [parseInt(totalOne),parseInt(totalTwo),parseInt(totalThree),parseInt(totalFour)];//Lo hacemos un arreglo de enteros
 
-        let filteredRow = row.filter(num => num);
+        let filteredRow = row.filter(num => num);//Esta función filtra los números
 
-        let restante = 4 - filteredRow.length;
-        let ceros = Array(restante).fill(0);
+        let restante = 4 - filteredRow.length;//Los que no sean números
+        let ceros = Array(restante).fill(0);//Llenamos los vacíos con ceros
 
-        let nueFil = ceros.concat(filteredRow);
+        let nueFil = ceros.concat(filteredRow);//Ponemos primero los ceros y después los números, así se van a la derecha
 
-        squares[i].innerHTML = nueFil[0];
+        squares[i].innerHTML = nueFil[0];//Lo replicamos en el grid
         squares[i+1].innerHTML = nueFil[1];
         squares[i+2].innerHTML = nueFil[2];
         squares[i+3].innerHTML = nueFil[3];
@@ -368,7 +368,7 @@ function j2048(){
         let restante = 4 - filteredRow.length;
         let ceros = Array(restante).fill(0);
 
-        let nueFil = filteredRow.concat(ceros);
+        let nueFil = filteredRow.concat(ceros);//Para que sea hacia la izquierda, primero van los números y después los ceros
 
         squares[i].innerHTML = nueFil[0];
         squares[i+1].innerHTML = nueFil[1];
@@ -379,9 +379,9 @@ function j2048(){
   }
   //Mover hacia abajo
   function moveDown(){
-    for (i=0; i<4; i++){
+    for (i=0; i<4; i++){//4 columnas
       let totalOne = squares[i].innerHTML;
-      let totalTwo = squares[i+width].innerHTML;
+      let totalTwo = squares[i+width].innerHTML;//Aplicamos el mismo método que los movimientos horizontales, solo que ahora sumando el tamaño en vez de 1
       let totalThree = squares[i+(2*width)].innerHTML;
       let totalFour = squares[i+(3*width)].innerHTML;
       let columna = [parseInt(totalOne),parseInt(totalTwo),parseInt(totalThree),parseInt(totalFour)];
@@ -419,21 +419,21 @@ function j2048(){
   }
   //Combinar FILAS
   function combineRow(){
-    for (i=0; i<15; i++){
-      if (squares[i].innerHTML===squares[i+1].innerHTML){
-        let totalCom = parseInt(squares[i].innerHTML)+parseInt(squares[i+1].innerHTML)
-        squares[i].innerHTML=totalCom;
+    for (i=0; i<15; i++){//Menor a 15, para no checar los cuadros al lado de la orilla
+      if (squares[i].innerHTML===squares[i+1].innerHTML){//Si son iguales, se podrán combinar
+        let totalCom = parseInt(squares[i].innerHTML)+parseInt(squares[i+1].innerHTML)//Se hace la suma
+        squares[i].innerHTML=totalCom;//Se pasa la suma al cuadro
 
-        squares[i+1].innerHTML=0;
-        score+= totalCom;
-        scoreDisplay.innerHTML = score;
+        squares[i+1].innerHTML=0;//Se hace cero el cuadro anterior
+        score+= totalCom;//Sumamos el score
+        scoreDisplay.innerHTML = score;//Lo ponemos en pantalla
       }
     }
-    ganar2048();
+    ganar2048();//Revisamos si ya ganó el usuario
   }
   //Combinar COLUMNAS
   function combineColumn(){
-    for (i=0; i<12; i++){
+    for (i=0; i<12; i++){//Lo mismo, pero ahora con width
       if (squares[i].innerHTML===squares[i+width].innerHTML){
         let totalCom = parseInt(squares[i].innerHTML)+parseInt(squares[i+width].innerHTML)
         squares[i].innerHTML=totalCom;
@@ -446,22 +446,22 @@ function j2048(){
     ganar2048();
   }
   //Teclas
-  function control(e){
-    if (e.keyCode==39){
+  function control(e){//Checamos el movimiento del usuario
+    if (e.keyCode==39){//Tecla derecha
       keyDer();
     }
-    else if (e.keyCode==37) {
+    else if (e.keyCode==37) {//Tecla izquierda
       keyIz();
     }
-    else if (e.keyCode==38) {
+    else if (e.keyCode==38) {//Flecha arriba
       keyUp();
     }
-    else if (e.keyCode==40) {
+    else if (e.keyCode==40) {//Flecha abajo
       keyDown();
     }
   }
-  document.addEventListener('keyup', control);
-  function keyDer(){
+  document.addEventListener('keyup', control);//Añadimos el event listener para los movimientos
+  function keyDer(){//Se mueve, se combinan, vuelve a moverse, y genera uno nuevo
     moveRight();
     combineRow();
     moveRight();
@@ -485,17 +485,18 @@ function j2048(){
     moveUp();
     generar();
   }
+  //Revisar la victoria
   function ganar2048(){
     for (i=0; i< squares.length; i++)
     {
-      if (squares[i].innerHTML==2048){
+      if (squares[i].innerHTML==2048){//Si llega a 2048, el usuario gana
         resultDisplay.innerHTML = "¡Ganaste! 🤩";
-        document.removeEventListener("keyup",control);
+        document.removeEventListener("keyup",control);//Evitamos más movimientos
       }
     }
   }
   function perder(){
-    let zeros=0;
+    let zeros=0;//Checamos cuantos ceros hay
     for (let i=0; i<squares.length; i++)
     {
       if (squares[i].innerHTML==0)
@@ -503,7 +504,7 @@ function j2048(){
         zeros++;
       }
     }
-    if (zeros===0)
+    if (zeros===0)//Si ya no quedan ceros (espacios vacíos), el usuario ha perdido
     {
       resultDisplay.innerHTML = "Perdiste 🤐";
       document.removeEventListener("keyup",control);
