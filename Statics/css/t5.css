@@ -1,0 +1,294 @@
+/*------------------------------------Fuente/s------------------------------------*/
+@font-face {
+  font-family: PressStart2P-Regular;
+  /* La ruta cambia según la carpeta lib de c/u */
+  src: url("../../../../lib/Fonts/PressStart2P-Regular.ttf");
+}
+
+body {
+  background-color: #333333;
+  background-attachment: fixed;
+  color: #F8F9F9;
+  font-family: PressStart2P-Regular;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  -webkit-text-stroke: 2px #353535;
+  color: #F8F9F9;
+  text-decoration: none;
+}
+
+/*------------------------------------Tema2------------------------------------*/
+/*------------------------------------Header------------------------------------*/
+
+header {
+  -webkit-text-stroke: 2px #353535;
+  background-color: #494949;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  position: relative;
+  height: 50px;
+}
+
+nav {
+  align-self: unset;
+  background: #393939;
+  border-radius: 20px;
+  display: flex;
+  height: 70%;
+  justify-content: flex-end;
+  padding: 10px;
+  position: relative;
+}
+
+#cw {
+  -webkit-text-stroke: 1px #353535;
+  align-items: center;
+  display: flex;
+  font-size: 32.5px;
+  font-style: normal;
+  font-weight: bolder;
+  height: 50px;
+  position: relative;
+  text-align: center;
+  text-shadow: 1px 3px 5px black;
+  width: 378px;
+}
+
+#b1, #b2, #b3 {
+  align-items: center;
+  background-color: #575757;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  margin: 0 5px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+
+#b1:hover, #b2:hover, #b3:hover {
+background-color: #494949;
+}
+/*------------------------------------Contenidos------------------------------------*/
+div {
+  margin: 15px;
+}
+
+#infoArc {
+  font-family: PressStart2P-Regular;
+  font-size: 13px;
+}
+
+#leftDisplay, #bottomDisplay, #rightDisplay {
+  -webkit-text-stroke: 2px #353535;
+  border-radius: 20px;
+  font-family: PressStart2P-Regular;
+  font-size: 25px;
+  display: flex;
+  padding: 10px;
+  position: relative;
+}
+
+/*------------------------------------Tetris------------------------------------*/
+
+#leftDisplay {
+  background-color: #494949;
+  justify-content: space-around;
+  margin: 13px;
+  height: 550px;
+}
+
+#cTr {
+  align-items: stretch;
+  font-family: PressStart2P-Regular;
+  width: 100%;
+}
+
+#nTr {
+  font-size: 30px;
+  margin: 10px;
+  text-align: center;
+  text-shadow: 1px 3px 5px black;
+}
+
+#botTr {
+  background-color: #393939;
+  border-radius: 20px;
+  padding: 10px;
+  width: 15%;
+}
+
+#jTr, #pTr, #adTr {
+  align-items: center;
+  background-color: #575757;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  margin: 5px 0;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+
+#jTr:hover, #pTr:hover, #adTr:hover {
+background-color: #494949;
+}
+
+#infTr {
+  -webkit-text-stroke: 1px #353535;
+  font-size: 15px;
+  margin: 5px;
+  padding: 10px;
+  text-align: justify;
+  width: 15%;
+}
+
+/*------------------------------------Busca Minas------------------------------------*/
+
+#bottomDisplay {
+  background-color: #494949;
+  justify-content: space-around;
+  margin: 13px;
+  height: 550px;
+}
+
+#cBm {
+  align-items: stretch;
+  font-family: PressStart2P-Regular;
+  width: 100%;
+}
+
+#nBm {
+  font-size: 30px;
+  margin: 10px;
+  text-align: center;
+  text-shadow: 1px 3px 5px black;
+}
+
+#botBm {
+  background-color: #393939;
+  border-radius: 20px;
+  padding: 10px;
+  width: 15%;
+}
+
+#jBm, #pBm, #adBm {
+  align-items: center;
+  background-color: #575757;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  margin: 5px 0;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+
+#jBm:hover, #pBm:hover, #adBm:hover {
+background-color: #494949;
+}
+
+#infBm {
+  -webkit-text-stroke: 1px #353535;
+  font-size: 15px;
+  margin: 5px;
+  padding: 10px;
+  text-align: justify;
+  width: 15%;
+}
+
+/*------------------------------------Caza Patos------------------------------------*/
+
+#rightDisplay {
+  background-color: #494949;
+  justify-content: space-around;
+  margin: 13px;
+  height: 550px;
+}
+
+#cCp {
+  align-items: stretch;
+  font-family: PressStart2P-Regular;
+  width: 100%;
+}
+
+#nCp {
+  font-size: 30px;
+  margin: 10px;
+  text-align: center;
+  text-shadow: 1px 3px 5px black;
+}
+
+#botCp {
+  background-color: #393939;
+  border-radius: 20px;
+  padding: 10px;
+  width: 15%;
+}
+
+#jCp, #pCp, #adCp {
+  align-items: center;
+  background-color: #575757;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  margin: 5px 0;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+
+#jCp:hover, #pCp:hover, #adCp:hover {
+background-color: #494949;
+}
+
+#infCp {
+  -webkit-text-stroke: 1px #353535;
+  font-size: 15px;
+  margin: 5px;
+  padding: 10px;
+  text-align: justify;
+  width: 15%;
+}
+
+
+/*------------------------------------Footer------------------------------------*/
+footer {
+  background-color: #494949;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#copy {
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+  position: relative;
+}
+
+#l2 {
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  position: relative;
+  width: 40px;
+}
+
+/*------------------------------------Comentarios------------------------------------*/
+
+/*Grid BuscaM boton
+div#grid{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 150px auto auto auto;
+  grid-gap: 10px;
+}*/
