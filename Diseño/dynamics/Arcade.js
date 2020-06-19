@@ -32,7 +32,7 @@ function colIn(){
 function inicio()
 {
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML= '<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item active" id="ini">Inicio</li><li class="list-group-item list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC"><option value="#85B7BD">';
+  bod[0].innerHTML= '<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item active" id="ini">Inicio</li><li class="list-group-item list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action" id="Aho">Ahorcado</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC"><option value="#85B7BD">';
   colIn();
   bod = document.getElementsByTagName("body");
   var grid = document.createElement("div");
@@ -49,7 +49,6 @@ function inicio()
   bot2.innerHTML="<center><button>2048</button></center>";
   var bot3 = document.createElement("div");
   bot3.innerHTML="<center><button>Tetris</button></center>";
-
   bot1.addEventListener('click', function(e) {
     buscaM();
   });
@@ -75,10 +74,14 @@ function inicio()
   botj2.addEventListener('click', function(e) {
     j2048();
   });
+  botAho = document.getElementById("Aho");
+  botAho.addEventListener('click', function(e) {
+    ahorcado();
+  });
 }
 function buscaM(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  active" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC"><option value="#85B7BD">';
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  active" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item list-group-item-action" id="Aho">Ahorcado</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC"><option value="#85B7BD">';
   bod[0].innerHTML+='<div class="container"><div class="grid"></div><div>Banderas restantes: <span id="flags-left"></span></div><div id="result"></div></div>';
   colIn();
   botIni = document.getElementById("ini");
@@ -89,7 +92,10 @@ function buscaM(){
   botj2.addEventListener('click', function(e) {
     j2048();
   });
-
+  botAho = document.getElementById("Aho");
+  botAho.addEventListener('click', function(e) {
+    ahorcado();
+  });
   const grid = document.querySelector('.grid');//Elige elementos con la clase grid del CSS
   const flagsLeft = document.querySelector('#flags-left');
   const result = document.querySelector('#result');
@@ -306,7 +312,7 @@ function buscaM(){
 }
 function j2048(){
   let bod = document.getElementsByTagName("body");
-  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action">Tetris</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC"><option value="#85B7BD">';//Colocamos el navbar de la página inicial, con modificaciones
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action " id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item  active" id="j2">2048</li><li class="list-group-item list-group-item-action" id="Aho">Ahorcado</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC"><option value="#85B7BD">';//Colocamos el navbar de la página inicial, con modificaciones
   bod[0].innerHTML+='<div class="scConten"><div class="scTi">Puntaje</div><span id="score">0</span></div><div id="result"></div><div class="reja"></div>';//Añadimos el grid para el juego
   colIn();
   botIni = document.getElementById("ini");//Obtenemos el botón de inicio
@@ -316,6 +322,10 @@ function j2048(){
   botBm = document.getElementById("bM");//El botón del buscaminas
   botBm.addEventListener('click', function(e) {
     buscaM();
+  });
+  botAho = document.getElementById("Aho");
+  botAho.addEventListener('click', function(e) {
+    ahorcado();
   });
   const gridDisplay = document.querySelector(".reja");//Obtenemos el grid
   const scoreDisplay = document.getElementById("score");//Obtenemos la sección de la puntuación
@@ -546,10 +556,252 @@ function j2048(){
     }
   }
 }
-var audio = new Audio("../statics/audio/theme.mp3");
+function ahorcado(){
+  bod = document.getElementsByTagName("body");
+  bod[0].innerHTML='<navbar class="navbar navbar-nav" style="background-color:red"><ul class="list-group list-group-horizontal"><li class="list-group-item list-group-item-action" id="ini">Inicio</li><li class="list-group-item  list-group-item-action" id="bM">Busca Minas</li><li class="list-group-item list-group-item-action" id="j2">2048</li><li class="list-group-item  active" id="Aho">Ahorcado</li><li class="list-group-item list-group-item-action">Color <input type="color" value="'+colVa+'" list="colf"></li></ul></navbar><datalist id="colf"><!--Son los colores que se van a mostrar!--><option value="#FFD700"><option value="#2DB7CC"><option value="#85B7BD">';
+  bod[0].innerHTML+='<h1>Ahorcado</h1><canvas id="pantalla" width="960px" height="450px"> <!-- etiqueta del canvas con sus medidas en la pantalla -->Tu navegador no soporta Canvas.</canvas>';
+  colIn();
+  botIni = document.getElementById("ini");//Obtenemos el botón de inicio
+  botIni.addEventListener('click', function(e) {//Al darle click, se irá a la sección de inicio
+    inicio();
+  });
+  botBm = document.getElementById("bM");
+  botBm.addEventListener('click', function(e) {
+    buscaM();
+  });
+  botj2 = document.getElementById("j2");
+  botj2.addEventListener('click', function(e) {
+    j2048();
+  });
+  botAho = document.getElementById("Aho");
+  botAho.addEventListener('click', function(e) {
+    ahorcado();
+  });
+  var ctx;
+  var canvas;
+  var palabra;
+  var letras = "QWERTYUIOPASDFGHJKLÑZXCVBNM";
+  var colorTecla = "#585858";
+  var colorMargen = "red";
+  var inicioX = 200;
+  var inicioY = 300;
+  var lon = 35;
+  var margen = 20;
+  var pistaText = "";
+
+  var teclas_array = new Array();
+  var letras_array = new Array();
+  var palabras_array = new Array();
+
+  var aciertos = 0;
+  var errores = 0;
+
+  //  Palabras a usar. Pueden cambiarse sin problema
+  palabras_array.push("EQUIPO");
+  palabras_array.push("CHAFA");
+  palabras_array.push("TRAICION");
+  palabras_array.push("EMERGENCIA");
+  palabras_array.push("AGUA");
+  palabras_array.push("SAL");
+  palabras_array.push("AZCUCAR");
+  palabras_array.push("SERPIENTE");
+  palabras_array.push("VAMPIRO");
+  palabras_array.push("HTML");
+  palabras_array.push("PHP");
+  palabras_array.push("CSS");
+  palabras_array.push("REFRESCO");
+  palabras_array.push("RISAS");
+  palabras_array.push("MOUSE");
+  //Para las teclas
+  function Tecla(x, y, ancho, alto, letra){
+      this.x = x;
+      this.y = y;
+      this.ancho = ancho;
+      this.alto = alto;
+      this.letra = letra;
+      this.dibuja = dibujaTecla;
+  }
+  //Para las letras del ahorcado
+  function Letra(x, y, ancho, alto, letra){
+      this.x = x;
+      this.y = y;
+      this.ancho = ancho;
+      this.alto = alto;
+      this.letra = letra;
+      this.dibuja = dibujaCajaLetra;
+      this.dibujaLetra = dibujaLetraLetra;
+  }
+
+  // Dibujar Teclas
+  function dibujaTecla(){
+      ctx.fillStyle = colorTecla;
+      ctx.strokeStyle = colorMargen;
+      ctx.fillRect(this.x, this.y, this.ancho, this.alto);
+      ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
+
+      ctx.fillStyle = "white";
+      ctx.font = "bold 20px courier";
+      ctx.fillText(this.letra, this.x+this.ancho/2-5, this.y+this.alto/2+5);
+  }
+
+  // Dibua la letra
+  function dibujaLetraLetra(){
+      var w = this.ancho;
+      var h = this.alto;
+      ctx.fillStyle = "black";
+      ctx.font = "bold 40px Courier";
+      ctx.fillText(this.letra, this.x+w/2-12, this.y+h/2+14);
+  }
+  //Dibuja la caja de la letra
+  function dibujaCajaLetra(){
+      ctx.fillStyle = "white";
+      ctx.strokeStyle = "black";
+      ctx.fillRect(this.x, this.y, this.ancho, this.alto);
+      ctx.strokeRect(this.x, this.y, this.ancho, this.alto);
+  }
+
+  /* Distribuir nuestro teclado con sus letras respectivas al acomodo de nuestro array */
+  function teclado(){
+      var ren = 0;
+      var col = 0;
+      var letra = "";
+      var miLetra;
+      var x = inicioX;
+      var y = inicioY;
+      for(var i = 0; i < letras.length; i++){
+          letra = letras.substr(i,1);
+          miLetra = new Tecla(x, y, lon, lon, letra);
+          miLetra.dibuja();
+          teclas_array.push(miLetra);
+          x += lon + margen;
+          col++;
+          if(col==10){
+              col = 0;
+              ren++;
+              if(ren==2){
+                  x = 280;
+              } else {
+                  x = inicioX;
+              }
+          }
+          y = inicioY + ren * 50;
+      }
+  }
+
+
+  //Obtenemos la palabra de forma aleatoria y la ordenamos
+  function pintaPalabra(){
+      var p = Math.floor(Math.random()*palabras_array.length);
+      palabra = palabras_array[p];
+
+      var w = canvas.width;
+      var len = palabra.length;
+      var ren = 0;
+      var col = 0;
+      var y = 230;
+      var lon = 50;
+      var x = (w - (lon+margen) *len)/2;
+      for(var i=0; i<palabra.length; i++){
+          letra = palabra.substr(i,1);
+          miLetra = new Letra(x, y, lon, lon, letra);
+          miLetra.dibuja();
+          letras_array.push(miLetra);
+          x += lon + margen;
+      }
+  }
+
+  //Esta función nos pone las imágenes del ahorcado
+  function horca(errores){
+      var imagen = new Image();
+      imagen.src = "../statics/img/ahorcado"+errores+".png";//Las imágenes en la carpeta están por números. Por ejemplo: ahorcado0.png
+      imagen.onload = function(){//Una vez que cargue, se pone en el canvas
+          ctx.drawImage(imagen, 390, 0, 230, 230);
+      }
+  }
+
+  //Ajusta las coordenadas
+  function ajusta(xx, yy){
+      var posCanvas = canvas.getBoundingClientRect();
+      var x = xx-posCanvas.left;
+      var y = yy-posCanvas.top;
+      return{x:x, y:y}
+  }
+
+  //Recibe el evento click para actuar
+  function selecciona(e){
+      var pos = ajusta(e.clientX, e.clientY);
+      var x = pos.x;
+      var y = pos.y;
+      var tecla;
+      var bandera = false;
+      for (var i = 0; i < teclas_array.length; i++){
+          tecla = teclas_array[i];
+          if (tecla.x > 0){
+              if ((x > tecla.x) && (x < tecla.x + tecla.ancho) && (y > tecla.y) && (y < tecla.y + tecla.alto)){
+                  break;
+              }
+          }
+      }
+      if (i < teclas_array.length){
+          for (var i = 0 ; i < palabra.length ; i++){
+              letra = palabra.substr(i, 1);
+              if (letra == tecla.letra){ //Aquí checamos si la letra es correcta
+                  caja = letras_array[i];
+                  caja.dibujaLetra();
+                  aciertos++;
+                  bandera = true;
+              }
+          }
+          if (bandera == false){ //Al no serla, aumentamos errores.
+              errores++;
+              horca(errores);
+              if (errores == 5)
+                gameOver(errores);//Función que termina el juego
+          }
+          //Aquí borramos la letra que ya se usó
+          ctx.clearRect(tecla.x - 1, tecla.y - 1, tecla.ancho + 2, tecla.alto + 2);
+          tecla.x - 1;
+          //Revisamos si ganó.
+          if (aciertos == palabra.length)
+            gameOver(errores);
+      }
+  }
+
+  //Función del fin del juego
+  function gameOver(errores){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);//Borra el contenido
+      ctx.fillStyle = "black";
+
+      ctx.font = "bold 50px Courier";
+      if (errores < 5){
+          ctx.fillText("Muy bien, la palabra es: ", 110, 280);//Si tiene menos de 5 errores, y está en esta función, es porque ganó
+      } else {
+          ctx.fillText("Lo sentimos, la palabra era: ", 110, 280);//Perdió
+      }
+
+      ctx.font = "bold 80px Courier";
+      lon = (canvas.width - (palabra.length*48))/2;
+      ctx.fillText(palabra, lon, 380);
+      horca(errores);
+  }
+  //Obtenemos el canvas
+  canvas = document.getElementById("pantalla");
+  if (canvas && canvas.getContext){//Checa que todo esté bien
+      ctx = canvas.getContext("2d");
+      if(ctx){
+          teclado();//Primero hacemos el teclado
+          pintaPalabra();//Después la palabra
+          horca(errores);//Enviamos los errores a la función horca
+          canvas.addEventListener("click", selecciona, false);//
+      } else {
+          bod[0].innerHTML+="Error al cargar el contexto!";//Si algo malo pasa, muestra un error
+      }
+  }
+}
+var audio = new Audio("../statics/audio/theme.mp3");//Canción del arcade
 audio.play();
-inicio();
-audio.addEventListener('ended', function() {
-    this.currentTime = 0;
+inicio();//Directo al inicio, donde todo comienza
+audio.addEventListener('ended', function() {//Mantenemos la música en loop infinito
+    this.currentTime = 0;//Reiniciamos la pista
     this.play();
 }, false);
