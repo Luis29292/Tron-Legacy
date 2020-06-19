@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+}
+#pantalla{
+    border: groove 8px #191919;
+    background: #696969;
+}
+#boton{
+    background-color: lightgray;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bolder;
+    padding: 3px;
+    border: solid 2px black;
+}
+#boton:hover{ /* Estilo que se activa al pasar el puntero sobre el boton */
+    background-color: royalblue;
+    font-size: 22px;
+    border: groove 4px #494949;
+}
