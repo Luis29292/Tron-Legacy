@@ -34,5 +34,5 @@
 * _*C:/(Tu_ruta_de_xampp)/htdocs/Tron-Legacy>*_
 * _*C:/(Tu_ruta_de_xampp)/htdocs/Tron-Legacy> git clone https://github.com/*_
 7. **Una vez realizado esto puede acceder a los archivos del repositorio desde su explorador de archivos.**
-## Guía de Configuración
+8. Abrir en el navegador, localhost/Tron-Legacy/templates/Arcade.html
 ## Comentarios Adicionales
