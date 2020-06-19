@@ -1,0 +1,97 @@
+/*------------------------------------Fuente/s------------------------------------*/
+@font-face {
+  font-family: PressStart2P-Regular;
+  src: url("../../lib/Fonts/PressStart2P-Regular.ttf");
+}
+
+body {
+  -webkit-text-stroke: 2px #353535;
+  background-attachment: fixed;
+  color: #F8F9F9;
+  font-family: PressStart2P-Regular;
+  margin: 0;
+  padding: 0;
+}
+
+/*------------------------------------Header------------------------------------*/
+
+header {
+  background-color: crimson;
+  padding: 15px;
+  height: 50px;
+}
+
+nav {
+  align-items: center;
+  background: #85B7BD;
+  border-radius: 20px;
+  bottom: 55px;
+  display: flex;
+  height: 70%;
+  justify-content: flex-end;
+  left: 1040px;
+  padding: 10px;
+  position: relative;
+  width: 30%;
+}
+
+#cw {
+  align-items: center;
+  display: flex;
+  font-size: 30px;
+  font-style: normal;
+  height: 50px;
+  position: relative;
+  text-align: center;
+  width: 378px;
+}
+
+#b1, #b2 {
+  align-items: center;
+  background-color: #729EA3;
+  border-radius: 15px;
+  display: flex;
+  font-size: 16px;
+  margin: 0 5px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+}
+/*Grid*/
+div#grid{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 150px auto 150px auto;
+  grid-gap: 10px;
+}
+/*Animación*/
+@keyframes logo {
+  0%{
+    left: -500px;
+    top: -400px;
+  }
+  50%{
+    left: -300px;
+    top: -100px;
+  }
+  100%{
+    left: 0px;
+    top: 0px;
+    transform: rotate(360deg);
+  }
+}
+#logo{
+  width: 60%;
+  position: relative;
+  animation-name: logo;
+  animation-duration: 5s;
+}
+#f1{
+  background-color: #FFD700;
+}
+#f2{
+  background-color: #2DB7CC;
+}
+#f3{
+  background-color: #85B7BD;
+}

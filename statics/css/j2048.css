@@ -1,0 +1,20 @@
+.reja{
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  background-color: blue;
+}
+.reja div{
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  font-size: 55px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 40%
+
+}
+#cero{
+  opacity: 0;
+}
