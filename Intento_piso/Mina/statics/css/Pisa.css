@@ -1,0 +1,23 @@
+body{
+  background-color: #FFFFFF;
+}
+#td1{
+  text-align: center;
+  background-color: red;
+}
+#td2{
+  text-align: center;
+}
+#td3{
+  text-align: center;
+}
+#td4{
+  text-align: center;
+  background-color: #a76042;
+}
+.tablita{
+  border:10px groove Gray;
+}
+.tablita2{
+  border:10px groove Gray;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../statics/css/Pisa.css" type="text/css">
+    <title></title>
+  </head>
+  <BODY onLoad="start()">
+
+<form name="test">
+
+<table class="tablita"><tr><td id="td1" valign=middle>
+  <I><B>BOMB!</B></I></td></tr>
+  <tr><td valign=middle>
+      <table class="tablita2"><tr><td valign=middle>
+          <table border=0 cellpadding=3><tr><td valign=middle align=center>
+            <input type="radio" name="alex"><input type="radio" name="alex"><input type="radio" name="alex">
+            <input type="radio" name="alex"><input type="radio" name="alex"><BR>
+            <input type="radio" name="alex"><input type="radio" name="alex"><input type="radio" name="alex">
+            <input type="radio" name="alex"><input type="radio" name="alex"><BR>
+            <input type="radio" name="alex"><input type="radio" name="alex"><input type="radio" name="alex">
+            <input type="radio" name="alex"><input type="radio" name="alex"><BR>
+            <input type="radio" name="alex"><input type="radio" name="alex"><input type="radio" name="alex">
+            <input type="radio" name="alex"><input type="radio" name="alex"><BR>
+            <input type="radio" name="alex"><input type="radio" name="alex"><input type="radio" name="alex">
+            <input type="radio" name="alex"><input type="radio" name="alex"></td>
+              <td></td><td></td><td></td><td></td><td valign=middle align=center><table border=0 cellpadding=3>
+                <tr><td id="td2"valign=middle colspan=3><input type="button" value="  Arriba   " onClick="vmove(-5)"></td></tr>
+                <tr><td><input type="button" value="  Izquierda  " onClick="hmove(-1)"></td>
+                <td><input type="text" name="screen" size=4></td>
+                <td><input type="button" value="Derecha" onClick="hmove(1)"></td></tr>
+                <tr><td id="td3"valign=middle colspan=3><input type="button" value="Abajo" onClick="vmove(5)"></td></tr>
+          </table></td></tr></table></td></tr>
+</td></tr></table>
+<tr><td id="td4" valign=middle >
+<CENTER><B>Usa los botones para darle dirección a tu punto</B></CENTER>
+<HR><input type="button" value="Re-START" onClick="start()">
+<B># Recorridos</B> <input type="text" name="screen1" size=4>
+
+</form>
+    <script type="text/javascript" src="../dynamics/Pisa.js"></script>
+
+  </body>
+</html>
