@@ -7,7 +7,7 @@
 
 ## Detalles previos a la instalación: 
 1. Contar con una buena conexión a Internet (de preferencia).
-2. Recomendamos el uso y visualización de la página en el navegador Google Chrome.
+2. Recomendamos altamente usar localhost, ya que navegadores con chromium podrían ignorar cookies locales
 3. Para evitar molestias en el funcionamiento y desarrollo del proyecto, sugerimos que su editor de texto sea Atom.
 
 ## Guía de Instalación:
@@ -29,7 +29,7 @@
 
 5. Ingrese a la carpeta creada, usando el _*"comando"*_ cd, para poder clonar el repositorio de la siguinete manera:
 * _*C:/Users/eluzu>*_
-* _*C:/Users/eluzu> cdC:/(Tu_ruta_de_xampp)/htdocs/Tron-Legacy*_
+* _*C:/Users/eluzu> cd C:/(Tu_ruta_de_xampp)/htdocs/Tron-Legacy*_
 * _*C:/(Tu_ruta_de_xampp)/htdocs/Tron-Legacy>*_
 
 6. Una vez dentro de su carpeta, escriba **git clone** y pegué el enlace que copió previamente usando ctrl + v.
@@ -37,6 +37,8 @@
 * _*C:/(Tu_ruta_de_xampp)/htdocs/Tron-Legacy> git clone (enlace que copió previamente)*_
 
 7. **Una vez realizado esto puede acceder a los archivos del repositorio desde su explorador de archivos.**
+
+8. Abrir en el navegador, localhost/Tron-Legacy/templates/Arcade.html
 
 ## Características del proyecto
 
