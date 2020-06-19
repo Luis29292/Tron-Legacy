@@ -55,7 +55,10 @@ El Arcade que presentamos cuenta con un diseño muy simple, pero eficaz; present
 
 ## Comentarios Adicionales
 >Luis
-
+* Lamentablemente, reviví la desagradable experiencia de tener medio equipo ausente
+* Debido a la falta de compromiso por parte de miembros del equipo, no logramos todos los objetivos, como tener usuarios o guardar las puntuaciones en cookies o bases.
+* Es una experiencia de mucho aprendizaje, no podría decir que me deprimió, pero sí me dejó un un sabor de insatisfacción. Pudimos haber logrado tanto. 
+* Para mí JS, representó un reto en mi vida, que otros lenguajes no habían consegudio. Solo Java normal se me ha complicado más que JS, sin embargo siento que aprendí mucho, y seguiré esforzándome para seguir progresando.
 >Cristian
 * Perdimos dos miembros
 * Ideas que se planeaban inicialmente no se lograron desarrollar por la falta de comunicación adecuada
