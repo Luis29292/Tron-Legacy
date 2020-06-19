@@ -50,7 +50,13 @@ El Arcade que presentamos cuenta con un diseño muy simple, pero eficaz; present
 #### 2048:
 * 2048 es un juego en línea y para telefonía móvil creado en marzo de 2014 por el desarrollador web italiano de 19 años Gabriele Cirulli, cuyo objetivo es deslizar baldosas en una cuadrícula para combinarlas y crear una baldosa con el número 2048.​
 
-### Ahorcado:
+#### Ahorcado:
 * El ahorcado es un juego de adivinanzas de lápiz y papel para dos o más jugadores. Un jugador piensa en una palabra, frase u oración y el otro trata de adivinarla según lo que sugiere por letras o números.
 
 ## Comentarios Adicionales
+>Luis
+
+>Cristian
+* Perdimos dos miembros
+* Ideas que se planeaban inicialmente no se lograron desarrollar por la falta de comunicación adecuada
+* Realmente creo que pudimos desempeñar un mejor trabajo de dos maneras, con mejor comunicacion o un mejor equipo, porque no es queja ni tirada ni nada, pero por ejemplo, al menos de Ian nunca supe nada personalemnte, ni idea si desento, etc
