@@ -4,8 +4,6 @@
 ## Integrantes y Autores:
 * Luis Dominguez
 * Cristian Umaña
-* Ian Méndez
-* José Carlos
 
 ## Detalles previos a la instalación: 
 1. Contar con una buena conexión a Internet (de preferencia).
@@ -40,7 +38,17 @@
 
 7. **Una vez realizado esto puede acceder a los archivos del repositorio desde su explorador de archivos.**
 
-## Guía de Configuración
+## Características del proyecto
 
+El Arcade que presentamos cuenta con un diseño muy simple, pero eficaz; presentandonos en su haber _*3 juegos*_ para evitar el aburrimiento en estos timpos de pandemia:
+### Descripción breve por juego:
+#### Busca Minas:
+* Buscaminas es un videojuego para un jugador inventado por Robert Donner en 1989. El objetivo del juego es despejar un campo de minas sin detonar ninguna. El juego ha sido programado para muchos sistemas operativos, pero debe su popularidad a las versiones que vienen con Microsoft Windows desde su versión 3.1.
+
+#### 2048:
+* 2048 es un juego en línea y para telefonía móvil creado en marzo de 2014 por el desarrollador web italiano de 19 años Gabriele Cirulli, cuyo objetivo es deslizar baldosas en una cuadrícula para combinarlas y crear una baldosa con el número 2048.​
+
+### Ahorcado:
+* El ahorcado es un juego de adivinanzas de lápiz y papel para dos o más jugadores. Un jugador piensa en una palabra, frase u oración y el otro trata de adivinarla según lo que sugiere por letras o números.
 
 ## Comentarios Adicionales
